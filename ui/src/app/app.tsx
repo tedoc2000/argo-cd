@@ -69,7 +69,7 @@ async function isExpiredSSO() {
 }
 
 requests.onError.subscribe(async err => {
-    if (err.status === 401) {
+    if (err.status === 401 || err.status === 403) {
         if (history.location.pathname.startsWith('/login')) {
             return;
         }
